@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>3D Walking Demo</title>
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <style>
+        body { margin: 0; }
+        canvas { display: block; }
+        .instructions {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            color: white;
+            background-color: rgba(0,0,0,0.7);
+            padding: 15px;
+            font-family: 'Press Start 2P', cursive;
+            font-size: 12px;
+            line-height: 1.5em;
+            border: 3px solid white;
+            border-radius: 4px;
+        }
+        .dialogue-box {
+            position: absolute;
+            bottom: 40px;
+            left: 0;
+            right: 0;
+            transform: none;
+            background-color: rgba(0, 0, 0, 0.9);
+            color: white;
+            padding: 25px;
+            font-family: 'Press Start 2P', cursive;
+            font-size: 25px;
+            line-height: 1.6em;
+            min-width: 0;
+            width: auto;
+            margin: 0 20px;
+            display: none;
+            border: 4px solid white;
+            border-radius: 8px;
+            box-shadow: 0 0 0 4px rgba(0,0,0,0.9);
+        }
+        .dialogue-prompt {
+            position: absolute;
+            bottom: 10px;
+            right: 25px;
+            color: #ffeb3b;
+            font-size: 12px;
+            animation: blink 1s infinite;
+        }
+        @keyframes blink {
+            50% { opacity: 0.5; }
+        }
+        .mobile-controls {
+            display: none;
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 160px;
+            z-index: 1000;
+            pointer-events: none;
+            padding: 10px;
+            display: flex;
+            flex-direction: row;
+            gap: 10px;
+        }
+
+        .movement-buttons {
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            pointer-events: auto;
+            width: 50%;
+            padding-right: 5px;
+        }
+
+        .interact-container {
+            position: relative;
+            display: flex;
+            align-items: center;
+            width: 50%;
+            pointer-events: auto;
+            padding-left: 5px;
+        }
+
+        .move-button {
+            width: 100%;
+            height: 70px;
+            background: rgba(0, 0, 0, 0.7);
+            border: 4px solid white;
+            border-radius: 8px;
+            color: white;
+            font-family: 'Press Start 2P', cursive;
+            font-size: 24px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            user-select: none;
+            -webkit-tap-highlight-color: transparent;
+            box-shadow: 
+                0 0 0 2px rgba(0, 0, 0, 0.9),
+                inset 0 0 0 2px rgba(255, 255, 255, 0.2);
+            text-shadow: 2px 2px 0 rgba(0, 0, 0, 0.5);
+        }
+
+        .move-button:active {
+            background: rgba(255, 255, 255, 0.3);
+            transform: translateY(2px);
+        }
+
+        .move-button i {
+            font-size: 30px;
+            line-height: 1;
+        }
+
+        .interact-button {
+            width: 100%;
+            height: 150px;
+            background: rgba(0, 0, 0, 0.7);
+            border: 4px solid white;
+            border-radius: 8px;
+            color: white;
+            font-family: 'Press Start 2P', cursive;
+            font-size: 24px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            user-select: none;
+            -webkit-tap-highlight-color: transparent;
+            pointer-events: auto;
+            box-shadow: 
+                0 0 0 2px rgba(0, 0, 0, 0.9),
+                inset 0 0 0 2px rgba(255, 255, 255, 0.2);
+            text-shadow: 2px 2px 0 rgba(0, 0, 0, 0.5);
+        }
+
+        .interact-button:active {
+            background: rgba(255, 255, 255, 0.3);
+            transform: translateY(2px);
+        }
+
+        @media (max-aspect-ratio: 4/3) {
+            .instructions {
+                display: none;
+            }
+            .mobile-controls {
+                display: flex;
+            }
+            .dialogue-box {
+                bottom: 180px;
+                margin: 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="instructions">
+        WASD - Move<br>
+        Mouse - Look around<br>
+        F - Interact with objects/Talk
+    </div>
+    <div class="dialogue-box"></div>
+    <!-- Remove or comment out this line -->
+    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script> -->
+    <script type="module" src="engine.js"></script>
+    <script type="module" src="game.js"></script>
+    <div class="mobile-controls">
+        <div class="movement-buttons">
+            <div class="move-button forward-button"><i class="fa-solid fa-chevron-up"></i></div>
+            <div class="move-button backward-button"><i class="fa-solid fa-chevron-down"></i></div>
+        </div>
+        <div class="interact-container">
+            <div class="interact-button">INTERACT</div>
+        </div>
+    </div>
+</body>
+</html> 
