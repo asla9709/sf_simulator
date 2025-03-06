@@ -63,6 +63,13 @@ class MyGame extends GameEngine {
                 "They're kinda cute, I've been trying to rizz them up.",
                 "Haven't made any progress yet though.",
                 "I'm not really sure what I'm doing here.",
+            ],
+            [
+                "Stop listening to Clairo and start listening to Kendrick Lamar.",
+                "Enough with the softboy vibes. You need to turn into a hard man."
+            ]
+            [
+                "I gotta go now, It's time for taraweeh.",
             ]
         ];
 

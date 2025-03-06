@@ -150,10 +150,7 @@ class Character extends InteractableObject {
             // Move to next block and end dialogue
             if (this.currentBlock < this.dialogueBlocks.length - 1) {
                 this.currentBlock++;
-            } else {
-                // Move to first block
-                this.currentBlock = 0;
-            }
+            } 
             this.endDialogue();
         }
     }
