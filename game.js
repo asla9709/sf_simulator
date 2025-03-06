@@ -67,7 +67,7 @@ class MyGame extends GameEngine {
             [
                 "Stop listening to Clairo and start listening to Kendrick Lamar.",
                 "Enough with the softboy vibes. You need to turn into a hard man."
-            ]
+            ],
             [
                 "I gotta go now, It's time for taraweeh.",
             ]
